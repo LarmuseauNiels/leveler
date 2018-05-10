@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <title>Leveler, Level maker</title>
+  <!--  Normalize  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <!--  Fonts  -->
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Sintony:400,700' rel='stylesheet' type='text/css'>
+  <!--  Styles  -->
+  <link rel="stylesheet" href="styles/editormenu.css">
+  <link rel="stylesheet" href="styles/editorp1.css">
+  <link rel="stylesheet" href="styles/editorp3.css">
+  <link rel="stylesheet" href="styles/editorp5.css">
+</head>
+<body>
+   <div class="ct" id="t1">
+      <div class="ct" id="t2">
+        <div class="ct" id="t3">
+          <div class="ct" id="t4">
+             <div class="ct" id="t5">
+              <ul id="menu">
+                <a href="#t1"><li class="icon fa fa-plus-square" id="uno"></li></a>
+                <a href="#t2"><li class="icon fa fa-cogs" id="dos"></li></a>
+                <a href="#t3"><li class="icon fa fa-th" id="tres"></li></a>
+                <a href="#t4"><li class="icon fa fa-gamepad" id="cuatro"></li></a>
+                <a href="#t5"><li class="icon fa fa-floppy-o" id="cinco"></li></a>
+              </ul>
+              <div class="page" id="p1"> 
+                  <div class="innerpagecenter">
+                      <div class="header">
+                        <div class="header-inner">
+                          <h1 class="title">Make your building blocks</h1>
+                        </div>
+                      </div>
+                      <div class="wrapper">
+                          <div class="col col-1">
+                            <h2>Name</h2>
+                            <input type="text" id="input-name" placeholder="Name">
+                            <h2>Color</h2>
+                            <h3>set color for block</h3>
+                              <div class="choices">
+                                <div class="choice-wrap">
+                                  <p>R:</p>
+                                    <div class="range-slider">
+                                      <input class="range-slider__range" type="range" id="red" min="0" value="0" max="255" step="1" />
+                                      <span class="range-slider__value">0</span>
+                                    </div>
+                                </div>
+                                <div class="choice-wrap">
+                                  <p>G:</p>
+                                  <div class="range-slider">
+                                    <input class="range-slider__range" type="range" id="green" min="0" value="0" max="255" step="1" />
+                                    <span class="range-slider__value">0</span>
+                                  </div>
+                                </div>
+                                <div class="choice-wrap">
+                                  <p>B:</p>
+                                  <div class="range-slider">
+                                    <input class="range-slider__range" type="range" id="blue" min="0" value="0" max="255" step="1" />
+                                    <span class="range-slider__value">0</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div id="choice-color"></div>
+
+                            <h2>Flags</h2>
+                            <p>whether the tile is solid or not</p>
+                            <input class="tgl tgl-flip" id="cb1" type="checkbox"/>
+                            <label class="tgl-btn" data-tg-off="NonSolid" data-tg-on="Solid" for="cb1"></label>
+                            </br>
+                            <p>whether the player can jump while over the tile</p>
+                            <input class="tgl tgl-flip" id="cb2" type="checkbox"/>
+                            <label class="tgl-btn" data-tg-off="can't jump" data-tg-on="can jump" for="cb2"></label>
+                            </br>
+                            <p>whether the tile is drawn in front of the player</p>
+                            <input class="tgl tgl-flip" id="cb3" type="checkbox"/>
+                            <label class="tgl-btn" data-tg-off="Background" data-tg-on="Front" for="cb3"></label>
+                          </div>
+                          <div class="col col-2">
+                            <h2>Parameters</h2>
+                            <p>how much velocity is preserved upon hitting the tile</p>
+                            <p>Bounce</p>
+                            <div class="range-slider">
+                            <input class="range-slider__range" type="range" id="velocity" min="0" value="0" max="1" step="0.01" />
+                            <span class="range-slider__value">0</span>
+                              </div>
+                            </br>
+                            <p>friction of the tile</p>
+                            <p>X</p>
+                            <div class="range-slider">
+                              <input class="range-slider__range" type="range" id="frictionX" min="0" value="0" max="1" step="0.01" />
+                              <span class="range-slider__value">0</span>
+                            </div>
+                            <p>Y</p>
+                            <div class="range-slider">
+                              <input class="range-slider__range" type="range" id="frictionY" min="0" value="0" max="1" step="0.01" />
+                              <span class="range-slider__value">0</span>
+                            </div>
+                            </br>
+                            <p>gravity of the tile</p>
+                            <p>X</p>
+                            <div class="range-slider">
+                              <input class="range-slider__range" type="range" id="GravityX" min="0" value="0" max="1" step="0.01" />
+                              <span class="range-slider__value">0</span>
+                            </div>
+                            <p>Y</p>
+                            <div class="range-slider">
+                              <input class="range-slider__range" type="range" id="GravityY" min="0" value="0" max="1" step="0.01" />
+                              <span class="range-slider__value">0</span>
+                            </div>
+                            </br>
+                            <h2>Script</h2>
+                            <p>Code executed if it is touched</p>
+                            <select id="script">
+                                <option value="none">None</option>
+                                <option value="death">death</option>
+                                <option value="next_level">next_level</option>
+                                <option value="unlock">unlock</option>
+                                <option value="change_colour">change_colour</option>
+                            </select> 
+                          </div>
+                          <div class="col col-3">
+                            <h2>Blocks</h2>
+                          </div>
+                        </div>
+                  </div>
+              </div>
+              <div class="page" id="p2">
+                      <section class="icon fa fa-cogs"><span class="title">settings</span></section>
+              </div>  
+              <div class="page" id="p3">
+                      <div class="innerpagecenter">
+                            <div class="header">
+                              <div class="header-inner">
+                                <h1 class="title">Make the level</h1>
+                              </div>
+                            </div>
+                            <div class="wrapper clearfix">
+                              <div class="col col-2 clearfix">
+                                <h2>Blocks</h2>
+                                <h3>Click to Select</h3>
+                                <div class="colors">
+                                  <span class="color c6">
+                                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331813/eraser.png" />
+                                  </span>
+                                  <span class="color c1" id="pal-1"><p>1</p></span>
+                                  <span class="color c2" id="pal-2"><p>2</p></span>
+                                  <span class="color c3" id="pal-3"><p>3</p></span>
+                                  <span class="color c4" id="pal-4"><p>4</p></span>
+                                  <span class="color c5" id="pal-5"><p>5</p></span>
+                                </div>
+                                <h2>Hover</h2>
+                                <h3>Hover Block type:</h3>
+                                <p class="data" id="hover-color">&nbsp;</p>
+                                <h3>Coordinates:</h3>
+                                <p class="data" id="pixel-no">&nbsp;</p>
+                              </div>
+                              <div class="col col-3 clearfix">
+                                  <div id="grid" class="clearfix"></div>
+                              </div>
+                            </div>
+                          </div>
+              </div>
+              <div class="page" id="p4">
+                  <div class="innerpagecenter">
+                      <canvas id="canvas"></canvas>
+                  </div>
+              </div> 
+              <div class="page" id="p5">
+                      <section class="icon fa  fa-floppy-o"><span class="title">Save Page</span></section> 
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+  <!-- Scripts -->
+  <script src="scripts/jquery.js"></script>
+  <script src="scripts/blockmaker.js"></script>
+  <script src="scripts/game.js"></script>
+  <script src="scripts/drawer.js"></script>
+</body>
+</html>
